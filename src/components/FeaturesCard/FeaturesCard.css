@@ -1,6 +1,6 @@
 .featuresCardDiv{
-    background-color: rgb(147, 147, 254);
-    width: 300px;
+    /* background-color: rgb(147, 147, 254); */
+    width: 350px;
 }
 
 .featuresCardImg{
@@ -10,4 +10,6 @@
 
 .featuresCardParagraph{
     font-size: 1.75rem;
+    padding:5px 20px;
+    color:white;
 }
