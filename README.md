@@ -10,14 +10,22 @@ The frontend is built using the following:
 - React.js
 - react-router-dom
 - Axios
+- JavaScript
+- CSS
 
 
 ## Pages included (Temporary...TBD):
 - Homepage
-- Profile
-- Transactions
-- Messages
-- Search
+- Profile/Dashboard page
+- Transactions page
+- Messages page
+- Search page
+- Task page
+
+## Reusable components
+- Registration
+- Sign In
+- Navbar
 
 ## API Endpoints(?)
 

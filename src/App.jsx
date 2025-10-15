@@ -1,4 +1,5 @@
 // import { useState, useEffect } from 'react'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Homepage from './pages/HomePage/Homepage';
 import Navbar from './components/Navbar/Navbar';
 import DashboardPage from './pages/DashboardPage/DashboardPage';
@@ -6,11 +7,8 @@ import Register from './components/Authenication/Register';
 import SignIn from './components/Authenication/SignIn';
 import TaskPage from './pages/TaskPage/TaskPage';
 import TransactionPage from './pages/TransactionPage/TransactionPage';
-
-
-
+import SearchPage from './pages/SearchPage/SearchPage';
 import './App.css';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -26,7 +24,7 @@ function App() {
         <Route path="/auth/login" element={<SignIn/>}/>
         <Route path="/task" element={<TaskPage/>}/>
         <Route path="/transaction" element={<TransactionPage/>}/>
-        
+        <Route path="/search" element={<SearchPage/>}/>
       </Routes>
     </BrowserRouter>
      
