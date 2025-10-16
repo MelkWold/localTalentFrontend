@@ -1,0 +1,125 @@
+.signupContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(176, 249, 247);
+    color:rgb(0, 1, 1);
+    padding:2rem;
+    font-size: 1.5rem;
+    min-height: 100vh;
+}
+
+.signupContainer h1{
+    color:rgb(9, 8, 8);
+    margin-bottom: 2rem;
+    font-weight: 600;
+    font-size: 2.5rem
+}
+
+.signupForm {
+    background: rgb(188, 184, 184);
+    padding: 2.5rem;
+    border-radius: 20px;
+    width:100%;
+    max-width: 600px;
+    color:#333;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.signUpForm label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color:#000205;
+    font-size: 1.25rem;
+}
+
+.signUpForm input[type="email"],
+.signUpForm input[type="password"],
+.signUpForm textarea,
+.signUpForm select {
+    width:90%;
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #e9f2fa;
+    color:black;
+}
+
+.signUpform textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.signUpForm fieldset {
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background-color: #f8fafc;
+}
+
+.signUpForm legend {
+    font-weight: 600;
+    color:#040404e2;
+    padding: 0 0.5rem;
+    font-size: 1.3rem;
+}
+
+.signUpForm fieldset label {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #050000;
+    cursor: pointer;
+    font-size: 1.25rem;
+}
+
+.signUpForm fieldset input[type='radio'],
+.signUpForm fieldset input[type='checkbox'] {
+    margin-right: 8px;
+    width:18px;
+    height:15px;
+    cursor:pointer;
+}
+
+
+button{
+    background-color: black;
+    color:white;
+    font-size: 1.5rem;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-top: 1rem;
+    padding: 14px 28px;
+    font-weight: 600;
+    border:none;
+
+}
+
+@media (max-width: 768px) {
+    .signupContainer {
+        padding: 1rem;
+    }
+
+    .signUpForm {
+        padding: 1.5rem;
+    }
+
+    .signupContainer h1 {
+        font-size: 2rem;
+    }
+    .signUpForm fieldset label {
+        display:block;
+        margin-right: 0;
+        margin-bottom: 0.8rem;
+    }
+}
