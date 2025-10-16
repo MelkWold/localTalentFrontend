@@ -12,7 +12,7 @@ export default function Register() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Get form data from the form
+        // Get form data from the Signup form
         const form = e.target;
         const formData = newFormData(form);
 
@@ -28,6 +28,7 @@ export default function Register() {
             role,
         };
 
+        //====== Remove this at production======
         console.log('Form data', allData);
     };
     

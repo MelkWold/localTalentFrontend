@@ -21,7 +21,7 @@ function App() {
         <Route path="/" element={<Homepage/>}/>
         <Route path="/dashboard" element={<DashboardPage/>}/>
         <Route path="/auth/register" element={<Register/>}/>
-        <Route path="/auth/login" element={<SignIn/>}/>
+        <Route path="/auth/signin" element={<SignIn/>}/>
         <Route path="/task" element={<TaskPage/>}/>
         <Route path="/transaction" element={<TransactionPage/>}/>
         <Route path="/search" element={<SearchPage/>}/>

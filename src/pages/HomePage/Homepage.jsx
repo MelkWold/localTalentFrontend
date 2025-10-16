@@ -40,8 +40,8 @@ export default function Homepage(){
             <div>
                 <ul className="footer">
                     <li><p>&copy; {new Date(Date.now()).getFullYear()} Local Talent Matcher</p></li>
-                    <li><a>Privacy Policy</a></li>
-                    <li><a>Terms of Use</a></li>
+                    <li><a>Privacy</a></li>
+                    <li><a>Terms</a></li>
                     <li><a>Contact</a></li>
                 </ul>
             </div>
