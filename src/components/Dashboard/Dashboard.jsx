@@ -3,7 +3,7 @@
 // pass data to this page using props and render it conditionally
 // props: userData, Task, transaction, review 
 import './Dashboard.css';
-
+import Profile from '../Profile/Profile';
 export default function DashboardPage(){
     // ======Temporary placeholder---replace dynamically
     let name = "Melkamu Woldemariam";
@@ -20,14 +20,8 @@ export default function DashboardPage(){
         <>
             <h1>Dashboard</h1>
             <h2>Welcome {name}. </h2><br/>
-            <div className = "personalInfo">
-                <h3>Personal Information</h3>
-                <p>{name} </p>
-                <p>{address} </p>
-                <p>{services}</p>
-                <button>Edit Profile</button>
-                <button>Delete Profile</button>
-            </div><br/>
+            <Profile/>
+            <br/>
 
             <div className = "tasks-Provider">
                 <h3>Current and Past Tasks</h3>
