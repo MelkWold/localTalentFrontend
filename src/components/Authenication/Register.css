@@ -7,7 +7,7 @@
     color:rgb(0, 1, 1);
     padding:2rem;
     font-size: 1.5rem;
-    min-height: 100vh;
+    min-height: 50vh;
 }
 
 .signupContainer h1{
@@ -21,7 +21,7 @@
     background: rgb(188, 184, 184);
     padding: 2.5rem;
     border-radius: 20px;
-    width:100%;
+    width:90%;
     max-width: 600px;
     color:#333;
 }
@@ -40,9 +40,10 @@
 
 .signUpForm input[type="email"],
 .signUpForm input[type="password"],
+.signUpForm input[type="text"],
 .signUpForm textarea,
 .signUpForm select {
-    width:90%;
+    width:85%;
     padding: 12px 16px;
     border: 2px solid #e2e8f0;
     border-radius: 12px;
@@ -92,7 +93,7 @@
 }
 
 
-button{
+.submit{
     background-color: black;
     color:white;
     font-size: 1.5rem;

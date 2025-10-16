@@ -4,6 +4,8 @@
 // props: userData, Task, transaction, review 
 import './Dashboard.css';
 import Profile from '../Profile/Profile';
+import Task from '../Task/Task';
+
 export default function DashboardPage(){
     // ======Temporary placeholder---replace dynamically
     let name = "Melkamu Woldemariam";
@@ -19,34 +21,10 @@ export default function DashboardPage(){
     return(
         <>
             <h1>Dashboard</h1>
-            <h2>Welcome {name}. </h2><br/>
+            <h2>Welcome {name}. </h2>
             <Profile/>
             <br/>
-
-            <div className = "tasks-Provider">
-                <h3>Current and Past Tasks</h3>
-                <p>Task: {task} </p>
-                <p>Task status: {taskStatus}</p>
-                <p>Payment amount: {paymentAmount}</p>
-                <p>Payment status: {paymentStatus}</p>
-                <p>Review: {review} </p>
-                <button>Update Task</button>
-            </div><br/>
-
-            <div className = "tasks-Customer">
-                <h3>Services received</h3>
-                <div className ="serviceCard">
-                    <p>Task: {task}</p>
-                    <p>Task status:{taskStatus} </p>
-                    <p>Payment amount: {paymentAmount}</p>
-                    <p>Payment status: {paymentStatus}</p>
-                    <p>Review: {review}</p>
-                </div>
-                
-                <button>Update</button>
-            </div><br/>
-
-
+            <Task/>
 
         </>
     )

@@ -6,9 +6,9 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Profile from './components/Profile/Profile';
 import Register from './components/Authenication/Register';
 import SignIn from './components/Authenication/SignIn';
-import TaskPage from './pages/TaskPage/TaskPage';
-import TransactionPage from './pages/TransactionPage/TransactionPage';
+import Task from './components/Task/Task';
 import SearchPage from './pages/SearchPage/SearchPage';
+//import MessagesPage from "./pages/MessagesPage/MessagesPage"
 import './App.css';
 
 function App() {
@@ -22,10 +22,10 @@ function App() {
         <Route path="/" element={<Homepage/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="/profile" element={<Profile/>}/>
+        <Route path="/task" element={<Task/>}/>
         <Route path="/auth/register" element={<Register/>}/>
         <Route path="/auth/signin" element={<SignIn/>}/>
-        <Route path="/task" element={<TaskPage/>}/>
-        <Route path="/transaction" element={<TransactionPage/>}/>
+        
         <Route path="/search" element={<SearchPage/>}/>
       </Routes>
     </BrowserRouter>

@@ -29,7 +29,6 @@ export default function SignIn(){
     }
     return(
         <section className ="signinContainer">
-            <h1>Sign In</h1>
 
             <form className="signinForm" onSubmit = {handleSubmit}>
             <div className= "form-group">
@@ -42,8 +41,8 @@ export default function SignIn(){
                     <label htmlFor="password">Password: </label>
                     <input id="password" type="password" name="password" required />
                 </div>
-                <br/>
-                <button>Signin</button>
+                <button>Sign In</button>
+                <p>Forgot password? Click <a>here</a> to reset.</p>
             </form>
         </section>
     )
