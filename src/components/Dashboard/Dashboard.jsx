@@ -19,12 +19,14 @@ export default function DashboardPage(){
     return(
         <>
             <h1>Dashboard</h1>
-            <h2>Welcome {name}. This is your Dashboard where you can see your detailed activities. </h2><br/>
+            <h2>Welcome {name}. </h2><br/>
             <div className = "personalInfo">
                 <h3>Personal Information</h3>
                 <p>{name} </p>
                 <p>{address} </p>
                 <p>{services}</p>
+                <button>Edit Profile</button>
+                <button>Delete Profile</button>
             </div><br/>
 
             <div className = "tasks-Provider">
@@ -34,15 +36,20 @@ export default function DashboardPage(){
                 <p>Payment amount: {paymentAmount}</p>
                 <p>Payment status: {paymentStatus}</p>
                 <p>Review: {review} </p>
+                <button>Update Task</button>
             </div><br/>
 
             <div className = "tasks-Customer">
                 <h3>Services received</h3>
-                <p>Task: {task}</p>
-                <p>Task status:{taskStatus} </p>
-                <p>Payment amount: {paymentAmount}</p>
-                <p>Payment status: {paymentStatus}</p>
-                <p>Review: {review}</p>
+                <div className ="serviceCard">
+                    <p>Task: {task}</p>
+                    <p>Task status:{taskStatus} </p>
+                    <p>Payment amount: {paymentAmount}</p>
+                    <p>Payment status: {paymentStatus}</p>
+                    <p>Review: {review}</p>
+                </div>
+                
+                <button>Update</button>
             </div><br/>
 
 
