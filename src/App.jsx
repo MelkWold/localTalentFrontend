@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Homepage from './pages/HomePage/Homepage';
 import Navbar from './components/Navbar/Navbar';
 import Dashboard from './components/Dashboard/Dashboard';
+import Profile from './components/Profile/Profile';
 import Register from './components/Authenication/Register';
 import SignIn from './components/Authenication/SignIn';
 import TaskPage from './pages/TaskPage/TaskPage';
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
+        <Route path="/profile" element={<Profile/>}/>
         <Route path="/auth/register" element={<Register/>}/>
         <Route path="/auth/signin" element={<SignIn/>}/>
         <Route path="/task" element={<TaskPage/>}/>

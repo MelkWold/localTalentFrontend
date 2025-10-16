@@ -10,6 +10,7 @@ export default function Navbar(){
                 <ul className="navbarUl">
                     <li><h3><Link to={"/"}>Home</Link></h3></li>
                     <li><h3><Link to={"/dashboard"}>Dashboard</Link></h3></li>
+                    <li><h3><Link to={"/profile"}>Profile</Link></h3></li>
                     <li><h3><Link to={"/auth/register"}>Register</Link></h3></li>
                     <li><h3><Link to={"/auth/signin"}>Sign In</Link></h3></li>
                 </ul>
