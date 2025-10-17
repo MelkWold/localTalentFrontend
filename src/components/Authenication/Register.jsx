@@ -17,8 +17,11 @@ export default function Register() {
     });
     // update formData using setFormData using data from  the signUp form
     function handleChange(e) {
-        setFormData({ ...formData, [e.target.name]:e.target.value })
+        setFormData({ ...formData, [e.target.name]:e.target.value });
+        if(e.target.name === 'role') console.log("Selected role:", e.target.value);
     }
+
+    console.log(formData);
 
     // Check where the setNewUser prop is coming from
     function handleClick(){
@@ -64,7 +67,7 @@ export default function Register() {
 
                 <div className= "form-group">
                     <label htmlFor="passwordConfirm">Confirm Password: </label>
-                    <input id="passwordpasswordConfirm" type="password" name="passwordpasswordConfirm" onChange={handleChange}required />
+                    <input id="passwordConfirm" type="password" name="passwordConfirm" onChange={handleChange}required />
                 </div>
 
                 <div className= "form-group">
