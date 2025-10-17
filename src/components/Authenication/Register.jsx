@@ -1,11 +1,12 @@
 import {useState} from 'react'; 
 import './Register.css';
 import { useNavigate } from 'react-router-dom';
-
+import { useAuth } from '../../context/regLoginContext';
 
 export default function Register() {
-    //const { signUp } = useAuth(); 
+    const { register } = useAuth(); 
     const navigate = useNavigate()
+    // set the initial state of formData to empty values 
     const [formData, setFormData] = useState({
         userName:'',
         email: '',
@@ -14,10 +15,11 @@ export default function Register() {
         services: '',
         role: '',
     });
-
+    // update formData using setFormData using data from  the signUp form
     function handleChange(e) {
         setFormData({ ...formData, [e.target.name]:e.target.value })
     }
+
     // Check where the setNewUser prop is coming from
     function handleClick(){
         setNewUser(false);
@@ -29,34 +31,15 @@ export default function Register() {
         try {
             if(formData.password !== formData.passwordConfirm)
                 throw new Error("Passwords should match!");
-            //await signUp(formData);
+            
+            // Register the user and navigate them to the dashboard
+            await register(formData);
 
             navigate("/dashboard");
 
         } catch(err){
             console.error(err.message);
         }
-        // Get form data from the Signup form
-        // const form = e.target;
-        // const formData = new FormData(form);
-        // const userName = formData.get("userName");
-        // const email = formData.get("email");
-        // const password = formData.get("password");
-        // const passwordConfirm = formData.get("password");
-        // const services = formData.get("services")
-        // const role = formData.get("role");
-    
-        // const allData = { 
-        //     userName,
-        //     email,
-        //     password,
-        //     passwordConfirm,
-        //     services,
-        //     role,
-        // };
-        // setFormData(...formData, allData);
-        //====== Remove this at production======
-        console.log('Form data', formData);
     };
     
 

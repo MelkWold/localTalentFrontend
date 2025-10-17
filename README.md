@@ -9,9 +9,16 @@ Local Talent Matcher is a full stack website that matches local professionals an
 The frontend is built using the following:
 - React.js
 - react-router-dom
+- react-cookie
 - Axios
 - JavaScript
 - CSS
+
+## Project Management Tools Used
+- JIRA (https://melkamuwoldemariam.atlassian.net/jira/software/projects/PC/boards/4?atlOrigin=eyJpIjoiZmE5MDdmMTlmNWNmNDA5OGJlM2EwYjlhNjhjNDRhYzUiLCJwIjoiaiJ9)
+
+## Wireframing
+- Figma (https://www.figma.com/design/1Ua77QBrzd4ws1pCf8jxhn/Local-Talent?node-id=0-1&t=jW26fzXYL3h6w32V-1)
 
 
 ## Pages included (Temporary...TBD):
