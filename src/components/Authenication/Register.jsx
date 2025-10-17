@@ -13,7 +13,7 @@ export default function Register() {
         password: '',
         passwordConfirm:'',
         services: '',
-        role: '',
+        role: 'Customer',
     });
     // update formData using setFormData using data from  the signUp form
     function handleChange(e) {

@@ -16,7 +16,6 @@ function App() {
 
   return (
     <>
-    <BrowserRouter>
       <Navbar/>
       <Routes>
         <Route path="/" element={<Homepage/>}/>
@@ -28,7 +27,6 @@ function App() {
         
         <Route path="/search" element={<SearchPage/>}/>
       </Routes>
-    </BrowserRouter>
      
     </>
   )

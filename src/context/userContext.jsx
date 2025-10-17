@@ -9,11 +9,11 @@ export default function UserProvider({ children }) {
     const value = {
         user,
         setUser,
-        category,
-        setCategory
+        role,
+        setRole,
     };
 
-    return <UserContext.Provider value={value}></UserContext.Provider>;
+    return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 }
 
 export function useUser() {

@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 // Define the SignIn function
 export default function Signin({ setNewUser }){
-    const { signIn } = useAuth();
+    const { signin } = useAuth();
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
