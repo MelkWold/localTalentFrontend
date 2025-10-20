@@ -12,6 +12,12 @@ export default function Register({ setNewUser }) {
         email: '',
         password: '',
         passwordConfirm:'',
+        phone:'',
+        userAddress: {
+            city:'',
+            state:'',
+            country:'',
+        },
         services: '',
         role: 'Provider',
     });
@@ -21,10 +27,24 @@ export default function Register({ setNewUser }) {
 
     // update formData using setFormData using data from  the signUp form
     function handleChange(e) {
-        setFormData({ ...formData, [e.target.name]:e.target.value });
+        const { name, value } = e.target;
+        if(name.startsWith('userAddress.')) {
+            // Handle nested address fields 
+            const addressField = name.split('.')[1];
+            setFormData(prevData => ({
+                ...prevData, 
+                userAddress: {
+                    ...prevData.userAddress,
+                    [addressField]: value
+                }
+            }));
+        } else {
+            // Handle non-address fields
+            setFormData({ ...formData, [name]: value })
+        }
         
         // Debugging step
-        if(e.target.name === 'role') console.log("Selected role:", e.target.value);
+        if(name === 'role') console.log("Selected role:", value);
     }
 
     function handleClick(){
@@ -42,7 +62,8 @@ export default function Register({ setNewUser }) {
             // convert services string to an array
             const submitData = {
                 ...formData, 
-                services: formData.role === "Provider" ? formData.services.split(',').map(service => service.trim()).filter(service => service !== '') : []
+                services: formData.role === "Provider" ? 
+                    formData.services.split(',').map(service => service.trim()).filter(service => service !== '') : []
             };
             
             // Debugging step
@@ -110,6 +131,57 @@ export default function Register({ setNewUser }) {
                         minLength="8" 
                         required />
                 </div>
+
+                <div className= "form-group">
+                    <label htmlFor="phone">Phone: </label>
+                    <input 
+                        id="phone" 
+                        type="tel" 
+                        name="phone" 
+                        onChange={handleChange} 
+                        value={formData.phone} 
+                        placeholder='+1-234-567-8900' 
+                        required />
+                </div>
+
+                <div className = "address-form">
+                <div className= "form-group">
+                    <label htmlFor="userAddress.city">City: </label>
+                    <input 
+                        id="userAddress.city" 
+                        type="text" 
+                        name="userAddress.city" 
+                        onChange={handleChange} 
+                        value={formData.userAddress.city} 
+                        placeholder='City' 
+                        required />
+                </div>
+
+                <div className= "form-group">
+                    <label htmlFor="userAddress.state">State: </label>
+                    <input 
+                        id="userAddress.state" 
+                        type="text" 
+                        name="userAddress.state" 
+                        onChange={handleChange} 
+                        value={formData.userAddress.state} 
+                        placeholder='State' 
+                        required />
+                </div>
+
+                <div className= "form-group">
+                    <label htmlFor="userAddress.country">Country: </label>
+                    <input 
+                        id="userAddress.country" 
+                        type="text" 
+                        name="userAddress.country" 
+                        onChange={handleChange} 
+                        value={formData.userAddress.country} 
+                        placeholder='Country' 
+                        required />
+                </div>
+                </div>
+                
 
                 <div className= "form-group">
                     <label htmlFor="services">Services: </label>

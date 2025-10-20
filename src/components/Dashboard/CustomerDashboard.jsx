@@ -23,21 +23,31 @@ export default function CustomerDashboard() {
 
     return (
         <>
-            <h1> Customer</h1>
             <div className = "profileCard">
             <div >
-                <h2>Customer Information</h2>
-                <p>{user.userName} </p>
-                <p>{user.userAddress?.city}, {user.userAddress?.state}, {user.userAddress?.country} </p>
-                <p>{user.phone}</p>
+                <h2>Personal Information</h2>
+                <p>
+                    <span style={{fontWeight: "bold"}}>Full Name: </span> 
+                        {user.userName} 
+                </p>
+                <p>
+                    <span style={{fontWeight: "bold"}}>Role: </span> 
+                        {user.role} 
+                </p>
+                <p><span style={{fontWeight: "bold"}}>Address: </span>
+                    {user.userAddress?.city}, {user.userAddress?.state}, {user.userAddress?.country} 
+                </p>
+                <p><span style={{fontWeight: "bold"}}>Phone: </span>
+                    {user.phone}
+                    </p>
                 
-                <h3>Reviews: </h3>
-                {reviews.length > 0? (
-                    reviews.map(review => (
-                    <p key={review._id}>{review.reviewer.userName}: {review.rating}/5 - {review.comment}</p>))
-                    ) : (
-                        <p>No Reviews Yet.</p>
-                    )}
+                <h3><span style={{fontWeight: "bold"}}>Reviews: </span></h3>
+                    {reviews.length > 0? (
+                        reviews.map(review => (
+                            <p key={review._id}>{review.reviewer.userName}: {review.rating}/5 - {review.comment}</p>))
+                            ) : (
+                            <p>No Reviews Yet.</p>
+                         )}
                     
                 <div className="forDashboard">
                     <button>Edit Profile</button>

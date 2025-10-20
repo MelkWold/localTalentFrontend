@@ -26,11 +26,23 @@ export default function ProviderDashboard() {
         <h1> Provider</h1>
         <div className = "profileCard">
             <div >
-                <h2>Provider Information</h2>
-                <p>{user.userName} </p>
-                <p>{user.userAddress?.city}, {user.userAddress?.state}, {user.userAddress?.country} </p>
-                <p>{user.phone}</p>
-                <p>{user.services?.length > 0 ? user.services.join(", ") : "No services listed" } </p>
+                <h2>Personal Information</h2>
+                <p>
+                    <span style={{fontWeight: "bold"}}>Full Name: </span> 
+                        {user.userName} 
+                </p>
+                <p>
+                    <span style={{fontWeight: "bold"}}>Role: </span> 
+                        {user.role} 
+                </p>
+                <p><span style={{fontWeight: "bold"}}>Address: </span>
+                    {user.userAddress?.city}, {user.userAddress?.state}, {user.userAddress?.country} 
+                </p>
+                <p><span style={{fontWeight: "bold"}}>Phone: </span>
+                    {user.phone}
+                    </p>
+                
+                <p><span style={{fontWeight: "bold"}}>Services: </span>{user.services?.length > 0 ? user.services.join(", ") : "No services listed" } </p>
 
                 <h3>Reviews: </h3>
                 {reviews.length > 0? (
