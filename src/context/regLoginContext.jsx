@@ -3,7 +3,6 @@ import axios from 'axios';
 import { createContext, useMemo, useContext } from 'react';
 import { useCookies } from 'react-cookie';
 import { useUser } from './userContext';
-
 // Create context
 const AuthContext = createContext();
 
@@ -53,6 +52,7 @@ export default function RegLoginProvider ({ children}) {
         // clear user context on logout
         setUser(null);
         setRole(null);
+
     };
 
     // Memoize values

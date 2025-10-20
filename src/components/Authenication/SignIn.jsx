@@ -78,7 +78,7 @@ export default function Signin({ setNewUser }){
                 <p>Forgot password? Click <a>here</a> to reset.</p>
                 <p>
                     Don't have an account? 
-                    <button type="button" onClick={handleClick}>Sign Up</button>
+                    <button className="authRedirect" type="button" onClick={handleClick}><a href ="/auth/register">Sign Up</a></button>
                 </p>
             </form>
         </section>

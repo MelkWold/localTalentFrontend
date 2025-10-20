@@ -226,7 +226,7 @@ export default function Register({ setNewUser }) {
             <hr/>
             
             <p style ={{border:"1px solid black", paddingLeft: "20px", paddingRight: "20px"}}
-            >Already have an account? <button onClick={handleClick}>Sign In</button></p>
+            >Already have an account? <button className="authRedirect" onClick={handleClick}><a href ="/auth/signin">Sign In</a></button></p>
         </section>
 )
 }

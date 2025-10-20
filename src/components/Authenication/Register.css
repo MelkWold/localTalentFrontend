@@ -54,6 +54,13 @@
     color:black;
 }
 
+.authRedirect{
+    background-color: rgb(252, 246, 246);
+    color:black;
+    font-weight: bold;
+    border: 1px solid black;
+}
+
 .signUpform textarea {
     min-height: 120px;
     resize: vertical;

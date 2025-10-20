@@ -36,7 +36,7 @@ export default function Homepage(){
             </div>
             </div>
             
-            <button>Get Started Today!</button>
+            <button><a href ="/auth/register">Get Started Today!</a></button>
             <div>
                 <ul className="footer">
                     <li><p>&copy; {new Date(Date.now()).getFullYear()} Local Talent Matcher</p></li>

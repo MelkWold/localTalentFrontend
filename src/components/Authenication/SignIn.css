@@ -17,6 +17,13 @@
     font-size: 2.5rem
 }
 
+.authRedirect{
+    background-color: rgb(252, 246, 246);
+    color:black;
+    font-weight: bold;
+    border: 1px solid black;
+}
+
 .signinForm {
     background: rgb(188, 184, 184);
     padding: 2.5rem;
