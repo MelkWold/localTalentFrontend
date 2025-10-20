@@ -5,33 +5,47 @@ import { useCookies } from 'react-cookie';
 
 // Create context
 const AuthContext = createContext();
-const backendConnectionStr = "http://localhost:3000/api";
 
 // Define the context provider function
 export default function RegLoginProvider ({ children}) {
-    const[cookies, setCookies, removeCookie] = useCookies(['token']);
+    const[cookies, setCookie, removeCookie] = useCookies(['token']);
+    const backendConnectionStr = "http://localhost:3000/api";
 
-// Register user and update the cookies with the registration token
+// ========================  Register user ==============================================
     async function register(formData) {
         let response = await axios.post(`${backendConnectionStr}/auth/register`, formData);
-        setCookies("token", response.data.token);
+        setCookie("token", response.data.token);
+
+        // Fetch full user data after registration
+        // const userResult = await axios.get(`${backendConnectionStr}/users/me`, {
+        //     headers: { Authorization: `Bearer ${token}` },});
+        // return { token, user: userResult.data };
     };
 
-
-    // Define a login function and update the cookies with the signin token
+//=========================   Sign In ===================================================
     async function signin(formData) {
         let response = await axios.post(`${backendConnectionStr}/auth/signin`, formData);
-        setCookies("token", response.data.token);
+        
+        const { token, user } = response.data;
+    
+        // store token in cookies
+        setCookie("token", token);
+
+        // Return token and full user data
+        return { token, user };
     } 
 
-    // Define the logout function
+    //=========================   Sign Out ===================================================
     function logout(){
-        ["token"].forEach((token) => removeCookie(token));
+        removeCookie("token", { path: '/'});
     };
 
     // Memoize values
     const value = useMemo(() => ({
-        cookies, signin, register, logout,
+        cookies, 
+        signin, 
+        register, 
+        logout,
         }), [cookies]);
 
         // Return the authprovider
