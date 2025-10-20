@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { createContext, useMemo, useContext } from 'react';
 import { useCookies } from 'react-cookie';
+import { useUser } from './userContext';
 
 // Create context
 const AuthContext = createContext();
@@ -10,16 +11,23 @@ const AuthContext = createContext();
 export default function RegLoginProvider ({ children}) {
     const[cookies, setCookie, removeCookie] = useCookies(['token']);
     const backendConnectionStr = "http://localhost:3000/api";
+    const { setUser, setRole } = useUser();
 
 // ========================  Register user ==============================================
     async function register(formData) {
         let response = await axios.post(`${backendConnectionStr}/auth/register`, formData);
-        setCookie("token", response.data.token);
+        // Destructure token and user from response
+        const { token, user } = response.data;
 
-        // Fetch full user data after registration
-        // const userResult = await axios.get(`${backendConnectionStr}/users/me`, {
-        //     headers: { Authorization: `Bearer ${token}` },});
-        // return { token, user: userResult.data };
+        // store token in cookies
+        setCookie("token", token);
+
+        // Update user context with the received data
+        setUser(user);
+        setRole(user.role);
+
+        // Return token and full user data
+        return { token, user };
     };
 
 //=========================   Sign In ===================================================
@@ -31,13 +39,20 @@ export default function RegLoginProvider ({ children}) {
         // store token in cookies
         setCookie("token", token);
 
+        // Update user context with the received data
+        setUser(user);
+        setRole(user.role);
+
         // Return token and full user data
         return { token, user };
     } 
 
     //=========================   Sign Out ===================================================
     function logout(){
-        removeCookie("token", { path: '/'});
+        removeCookie("token");
+        // clear user context on logout
+        setUser(null);
+        setRole(null);
     };
 
     // Memoize values
@@ -46,7 +61,7 @@ export default function RegLoginProvider ({ children}) {
         signin, 
         register, 
         logout,
-        }), [cookies]);
+        }), [cookies, setUser, setRole]);
 
         // Return the authprovider
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

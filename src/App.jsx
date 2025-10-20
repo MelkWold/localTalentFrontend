@@ -1,31 +1,36 @@
+// Import Hooks, Frameworks and Libraries
 import axios from 'axios';
 import { useState, useEffect } from 'react'
 import { Route, Routes } from "react-router-dom";
-import Homepage from './pages/HomePage/Homepage';
-import Navbar from './components/Navbar/Navbar';
 import { useUser } from './context/userContext';
+import './App.css';
+import { useAuth } from "./context/regLoginContext";
+
+// Import Pages
+import SearchPage from './pages/SearchPage/SearchPage';
+import DashboardPage from "./pages/DashboardPage/DashboardPage";
+import Homepage from './pages/HomePage/Homepage';
+
+// Import Components
+import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import Register from './components/Authenication/Register';
 import SignIn from './components/Authenication/SignIn';
 import Task from './components/Task/Task';
-import SearchPage from './pages/SearchPage/SearchPage';
-import DashboardPage from "./pages/DashboardPage/DashboardPage";
-import './App.css';
-import { useAuth } from "./context/regLoginContext";
 
 
 function App() {
   const { cookies, logout } = useAuth();
   const { setUser, setRole } = useUser();
-  let baseURL = 'http://localhost:3000/api';
-
+  
   async function getData() {
+    let baseURL = 'http://localhost:3000/api';
+    
     // if there is no token, do not fetch 
     if(!cookies?.token) return ;
 
     try {
-      const userResponse = await axios.get(`${baseURL}/users/me`, {
-        headers: { Authorization: `Bearer ${cookies.token}` },
+      let userResponse = await axios.get(`${baseURL}/users/me`, { headers: { 'x-auth-token': cookies.token },
       });
 
       // Save user and their role in context
@@ -38,10 +43,9 @@ function App() {
   }
 
   useEffect(() => {
-    if(cookies?.token) {
+    // Fetch user data on initial load and when the token cookie changes
       getData();
-    }
-  }, [cookies]);
+  }, [cookies, logout, setUser, setRole]);
 
   return (
     <>
