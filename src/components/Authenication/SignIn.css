@@ -17,11 +17,24 @@
     font-size: 2.5rem
 }
 
+.submit:hover{
+    color:blue;
+    background-color: white;
+}
+
 .authRedirect{
-    background-color: rgb(252, 246, 246);
-    color:black;
+    background-color: white;
     font-weight: bold;
     border: 1px solid black;
+}
+.authRedirect a{
+    color:black;
+    font-weight:bold;
+}
+
+.authRedirect a:hover{
+    color:blue;
+    font-weight:bold;
 }
 
 .signinForm {

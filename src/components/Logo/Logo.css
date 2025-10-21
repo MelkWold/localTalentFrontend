@@ -1,9 +1,21 @@
-.Logo{
-    
-}
 
 img{
     border-radius:85px;
     width:150px;
     height:150px;
+    border: 1px solid black;
+}
+
+.Logo{
+    display:flex;
+    gap: 50px;
+    background-color: black;
+    border-radius: 50px;
+    padding:20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.tagline{
+    color:white;
 }

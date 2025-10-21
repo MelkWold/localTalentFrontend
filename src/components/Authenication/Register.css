@@ -54,12 +54,6 @@
     color:black;
 }
 
-.authRedirect{
-    background-color: rgb(252, 246, 246);
-    color:black;
-    font-weight: bold;
-    border: 1px solid black;
-}
 
 .signUpform textarea {
     min-height: 120px;
@@ -111,6 +105,25 @@
     padding: 14px 28px;
     font-weight: 600;
     border:none;
+}
+.submit:hover{
+    color:blue;
+    background-color: white;
+}
+
+.authRedirect{
+    background-color: white;
+    font-weight: bold;
+    border: 1px solid black;
+}
+.authRedirect a{
+    color:black;
+    font-weight:bold;
+}
+
+.authRedirect a:hover{
+    color:blue;
+    font-weight:bold;
 }
 
 .address-form{

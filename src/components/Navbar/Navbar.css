@@ -1,6 +1,9 @@
 .navbar{
-    background-color: #222;
+    /* background-color: white; */
     padding: 1rem; 
+    border-radius: 15px;
+    /* border: 1px solid black; */
+
 }
 
 .navbarUl {
@@ -17,6 +20,15 @@
 .navbarUl li a {
     color: white;
     text-decoration: none;
+    padding:10px 30px;
+    border-radius: 15px;
+    background-color: black;
+}
+
+.navbarUl li a:hover{
+    background-color: white;
+    color:rgb(60, 4, 247);
+    border: 1px solid blue;
 }
 
 @media (max-width: 768px) {

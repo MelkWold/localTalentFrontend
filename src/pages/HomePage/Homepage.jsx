@@ -19,21 +19,21 @@ export default function Homepage(){
 
                 <div className="cardContainer">
                 
-                <FeaturesCard 
-                    imgSrc = {local} 
-                    alt= {"local icon"} 
-                    paragraph = {"Connecting local talent and skills with customers." }
-                    />
-                <FeaturesCard 
-                    imgSrc = {community} 
-                    alt= {"community icon"} 
-                    paragraph = {"Opportunity for service delivery that enhances local communities."} />
-                <FeaturesCard 
-                    imgSrc = {trust} 
-                    alt= {"trust icon"} 
-                    paragraph = {"Trustworthy interaction with members of your community."}
-                    />
-            </div>
+                    <FeaturesCard 
+                        imgSrc = {local} 
+                        alt= {"local icon"} 
+                        paragraph = {"Connecting local talent and skills with customers." }
+                        />
+                    <FeaturesCard 
+                        imgSrc = {community} 
+                        alt= {"community icon"} 
+                        paragraph = {"Opportunity for service delivery that enhances local communities."} />
+                    <FeaturesCard 
+                        imgSrc = {trust} 
+                        alt= {"trust icon"} 
+                        paragraph = {"Trustworthy interaction with members of your community."}
+                        />
+                </div>
             </div>
             
             <button><a href ="/auth/register">Get Started Today!</a></button>
