@@ -1,6 +1,7 @@
 import { useUser } from "../../context/userContext";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import "./Dashboard.css";
 
 export default function CustomerDashboard() {
     const { user, role } = useUser();

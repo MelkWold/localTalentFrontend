@@ -17,7 +17,7 @@ import Profile from './components/Profile/Profile';
 import Register from './components/Authenication/Register';
 import SignIn from './components/Authenication/SignIn';
 import Task from './components/Task/Task';
-
+import Footer from './components/Footer/Footer';
 
 function App() {
   const { cookies, logout } = useAuth();
@@ -59,6 +59,7 @@ function App() {
         <Route path="/auth/signin" element={<SignIn/>}/>
         <Route path="/search" element={<SearchPage/>}/>
       </Routes>
+      <Footer/>
      
     </>
   );

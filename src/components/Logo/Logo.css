@@ -13,7 +13,7 @@ img{
     border-radius: 50px;
     padding:20px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .tagline{

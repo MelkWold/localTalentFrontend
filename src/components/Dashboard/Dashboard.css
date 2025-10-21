@@ -1,24 +1,13 @@
-.personalInfo,
-.tasks-Customer,
-.tasks-Provider {
-    border: 1px solid black;
-    background-color: beige;
-    padding:10px;
-    max-width:600px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 1.2rem;
-}
-
-.serviceCard{
-    border: 1px solid chocolate;
-    max-width: 300px;
-    margin-left: auto;
-    margin-right:auto;
-}
-
 button:hover {
     border-color: #0410f4f0;
     background-color: white;
     font-size: bold;
   }
+
+.forDashboard button{
+    font-size: 1.1rem;
+}
+
+.forPublicProfile button{
+    font-size: 1.1rem;
+}

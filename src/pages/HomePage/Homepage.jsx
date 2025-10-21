@@ -14,7 +14,7 @@ export default function Homepage(){
                 <h1>Welcome to Local Talent Matcher</h1>
                 <h2>A commmunity-driven way of connecting local talent with local community creating additional income-generation mechanism and trust-based service. </h2>
             </div>
-            <div>
+            <div className="featuresTitle">
                 <h1>Here is why we matter!</h1>
 
                 <div className="cardContainer">
@@ -37,14 +37,6 @@ export default function Homepage(){
             </div>
             
             <button><a href ="/auth/register">Get Started Today!</a></button>
-            <div>
-                <ul className="footer">
-                    <li><p>&copy; {new Date(Date.now()).getFullYear()} Local Talent Matcher</p></li>
-                    <li><a>Privacy</a></li>
-                    <li><a>Terms</a></li>
-                    <li><a>Contact</a></li>
-                </ul>
-            </div>
             
         </>
     )

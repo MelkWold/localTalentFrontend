@@ -1,9 +1,6 @@
 .navbar{
-    /* background-color: white; */
     padding: 1rem; 
     border-radius: 15px;
-    /* border: 1px solid black; */
-
 }
 
 .navbarUl {
@@ -15,6 +12,10 @@
     padding: 0;
     gap: 30px;
     font-size: 2rem;
+}
+
+.navbarUl li{
+    font-size: 1.5rem;
 }
 
 .navbarUl li a {
@@ -41,7 +42,7 @@
 
     .navbarUl li {
         margin: 10px 0;
-        font-size: smaller;
+        font-size: 1.2rem;
         
     }
 }

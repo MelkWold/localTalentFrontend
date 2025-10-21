@@ -5,7 +5,7 @@ export default function Logo(){
     return(
         <div className= "Logo">
             <img className = "logoImg" src = {logoIcon} alt ="logoImage"/>
-            <h2 className="tagline">Connecting Local Talent with local communities</h2>
+            <h2 className="tagline">Building community one local talent at a time!</h2>
         </div>
     )
 }

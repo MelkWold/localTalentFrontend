@@ -1,6 +1,7 @@
 import { useUser } from "../../context/userContext";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import "./Dashboard.css";
 
 export default function ProviderDashboard() {
     const { user, role } = useUser();
@@ -23,7 +24,7 @@ export default function ProviderDashboard() {
 
     return (
     <>
-        <h1> Provider</h1>
+
         <div className = "profileCard">
             <div >
                 <h2>Personal Information</h2>
