@@ -33,11 +33,15 @@
 
 @media (max-width: 768px) {
     .navbarUl{
-        display: block;
+        display: flex;
+        flex-wrap: wrap;
         text-align: center;
+        gap: 5px;
     }
 
     .navbarUl li {
         margin: 10px 0;
+        font-size: smaller;
+        
     }
 }

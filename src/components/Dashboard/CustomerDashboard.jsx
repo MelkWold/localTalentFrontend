@@ -9,6 +9,7 @@ export default function CustomerDashboard() {
 
     useEffect(() => {
         if (!user?._id) return;
+        
         async function fetchReviews() {
             try {
                 const response = await axios.get(`${baseURL}/reviews/user/${user._id}`);
