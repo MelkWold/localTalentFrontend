@@ -2,24 +2,33 @@ import { useUser } from "../../context/userContext";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import "./Dashboard.css";
+import { useNavigate } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 export default function ProviderDashboard() {
-    const { user, role } = useUser();
+    const {user, role, setUser} = useUser();
     const [reviews, setReviews] = useState([]);
-    let baseURL = "http://localhost:3000/api"
+    const navigate= useNavigate();
+    const [cookies] = useCookies(["token"]);
+    let baseURL = "http://localhost:3000/api";
 
     useEffect(() => {
         if (!user?._id) return;
+
         async function fetchReviews() {
             try {
-                const response = await axios.get(`${baseURL}/reviews/user/${user._id}`);
+                const response = await axios.get(`${baseURL}/reviews/user/${user._id}`, {
+                    headers: {
+                        "x-auth-token": cookies.token,
+                    },
+                });
                 setReviews(response.data)
             } catch(err){
                 console.error("Error fetching reviews:", err.message);
             }
         }
         fetchReviews();
-    }, [user]);
+    }, [user, cookies.token]);
     
     async function handleEdit(){
         
@@ -27,8 +36,25 @@ export default function ProviderDashboard() {
 
 
     async function handleDelete(){
+        const confirmDelete = window.confirm("Are you sure you want to delete your profile? This action cannot be undone.");
+        if (!confirmDelete) return;
 
+        try {
+            await axios.delete(`${baseURL}/users/${user._id}`, {
+                headers: {
+                    'x-auth-token': cookies.token,
+                },
+            });
+            
+            alert("Your profile has been deleted.");
+            setUser(null);
+            navigate("/signin");
+        } catch(err) {
+            console.error("Error deleting profile: ", err.message);
+            alert("Failed to delete profile. Please try again later.")
+        }
     };
+
 
 
     return (
@@ -57,14 +83,14 @@ export default function ProviderDashboard() {
                 <h3>Reviews: </h3>
                 {reviews.length > 0? (
                     reviews.map(review => (
-                    <p key={review._id}>{review.reviewer.userName}: {review.rating}/5 - {review.comment}</p>))
+                    <p key={review._id}>{review.reviewer?.userName || "Unknown Reviewer"}: {review.rating}/5 - {review.comment}</p>))
                     ) : (
                         <p>No Reviews Yet.</p>
                     )}
                 
                 <div className="forDashboard">
-                    <button onClick="handleEdit">Edit Profile</button>
-                    <button onClick="handleDelete">Delete Profile</button>
+                    <button onClick={handleEdit}>Edit Profile</button>
+                    <button onClick={handleDelete}>Delete Profile</button>
                 </div>
             </div><br/>
             </div>

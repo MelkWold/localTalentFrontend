@@ -2,10 +2,14 @@ import { useUser } from "../../context/userContext";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import "./Dashboard.css";
+import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 export default function CustomerDashboard() {
-    const { user, role } = useUser();
+    const { user, role, setUser } = useUser();
     const [reviews, setReviews] = useState([]);
+    const [cookies] = useCookies(["token"]);
+    const navigate= useNavigate();
     let baseURL = "http://localhost:3000/api"
 
     useEffect(() => {
@@ -13,15 +17,42 @@ export default function CustomerDashboard() {
         
         async function fetchReviews() {
             try {
-                const response = await axios.get(`${baseURL}/reviews/user/${user._id}`);
+                const response = await axios.get(`${baseURL}/reviews/user/${user._id}`, {
+                    headers: {
+                        "x-auth-token": cookies.token,
+                    },
+                });
                 setReviews(response.data)
             } catch(err){
                 console.error("Error fetching reviews:", err.message);
             }
         }
         fetchReviews();
-    }, [user]);
+    }, [user, cookies.token]);
 
+    // Edit Profile
+    async function handleEdit(){
+        
+    };
+    // Delete Profile
+    async function handleDelete(){
+        const confirmDelete = window.confirm("Are you sure you want to delete your profile? This action cannot be undone.");
+        if(!confirmDelete) return;
+
+        try {
+            await axios.delete(`${baseURL}/users/${user._id}`, {
+                headers: {
+                    'x-auth-token': cookies.token,
+                },
+            });
+            alert("Your profile has been deleted.");
+            setUser(null);
+            navigate("/signin");
+        } catch(err) {
+            console.error("Error deleting profile: ", err.message);
+            alert("Failed to delete profile. Please try again later.")
+        }
+};
 
     return (
         <>
@@ -52,8 +83,8 @@ export default function CustomerDashboard() {
                          )}
                     
                 <div className="forDashboard">
-                    <button>Edit Profile</button>
-                    <button>Delete Profile</button>
+                    <button onClick={handleEdit}>Edit Profile</button>
+                    <button onClick={handleDelete}>Delete Profile</button>
                 </div>
             </div><br/>
             </div>

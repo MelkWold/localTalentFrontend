@@ -69,8 +69,6 @@ export default function Profile(){
                         <div key={review._id} className="review-card">
                             <p>Customer name: {review.reviewer?.userName}</p>
                             <p>Provider name: {review.reviewee?.userName}</p>
-                            <p>Task: {review.service} </p>
-                            <p>Task status: {review.taskStatus}</p>
                             <p>Rating: {review.rating}</p>
                             <p>Review: {review.comment}</p>
                         </div>

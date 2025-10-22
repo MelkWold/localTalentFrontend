@@ -23,7 +23,7 @@ export default function Register({ setNewUser }) {
     });
 
     // Debugging step
-    console.log(formData);
+    //console.log(formData);
 
     // update formData using setFormData using data from  the signUp form
     function handleChange(e) {
@@ -55,8 +55,10 @@ export default function Register({ setNewUser }) {
         e.preventDefault();
 
         try {
-            if(formData.password !== formData.passwordConfirm)
+            if(formData.password !== formData.passwordConfirm){
+                alert("Passwords should match");
                 throw new Error("Passwords should match!");
+            }
             
             // prepare data for submission
             // convert services string to an array
