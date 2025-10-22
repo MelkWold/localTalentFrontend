@@ -70,7 +70,7 @@ export default function Profile(){
                             <p>Customer name: {review.reviewer?.userName}</p>
                             <p>Provider name: {review.reviewee?.userName}</p>
                             <p>Rating: {review.rating}</p>
-                            <p>Review: {review.comment}</p>
+                            <p>{review.comment}</p>
                         </div>
                     ))
                 )}
