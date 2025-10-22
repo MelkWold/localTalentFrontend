@@ -10,6 +10,7 @@ import { useAuth } from "./context/regLoginContext";
 import SearchPage from './pages/SearchPage/SearchPage';
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import Homepage from './pages/HomePage/Homepage';
+import MessagesPage from './pages/MessagesPage/MessagesPage';
 
 // Import Components
 import Navbar from './components/Navbar/Navbar';
@@ -62,6 +63,7 @@ function App() {
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/task" element={<Task/>}/>
           <Route path="/search" element={<SearchPage/>}/>
+          <Route path="/message" element={<MessagesPage/>}/>
         </Route>
         
       </Routes>

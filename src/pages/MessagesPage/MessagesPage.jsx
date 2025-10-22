@@ -1,21 +1,14 @@
+import"./MessagesPage.css";
+
 export default function MessagesPage(){
 
     return(
         <>
-            <h1>Messages</h1>
-            <div>
-                <div>
-                    <p>Sender</p>
-                    <p>Message Text</p>
-                </div>
-                <button>Reply</button>
-                <button>Delete</button>
-                <form>
-                    <label htmlFor=""></label>
-                    
-                </form>
-
+            <div className="messages">
+                <h1>Messages</h1>
+                <h2>Coming soon. Stay tuned ... your inbox coming soon!</h2>
             </div>
+            
             
         </>
     )
