@@ -31,7 +31,7 @@ export default function ProviderDashboard() {
     }, [user, cookies.token]);
     
     async function handleEdit(){
-        
+        navigate(`/edit-profile/${user._id}`);
     };
 
 

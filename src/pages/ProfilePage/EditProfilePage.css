@@ -1,0 +1,117 @@
+.editProfileCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(243, 248, 247);
+    color:rgb(0, 1, 1);
+    padding:2rem;
+    font-size: 1.5rem;
+    min-height: 50vh;
+}
+
+
+.editProfileForm {
+    background: rgb(188, 184, 184);
+    padding: 2.5rem;
+    border-radius: 20px;
+    width:90%;
+    max-width: 600px;
+    color:#333;
+}
+
+
+.editProfileForm  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color:#000205;
+    font-size: 1.25rem;
+}
+
+.editProfileForm  input[type="email"],
+.editProfileForm  input[type="text"],
+.editProfileForm  input[type="tel"],
+.editProfileForm  textarea,
+.editProfileForm  select {
+    width:85%;
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #e9f2fa;
+    color:black;
+}
+
+
+.editProfileForm  textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+
+
+.editProfileForm legend {
+    font-weight: 600;
+    color:#040404e2;
+    padding: 0 0.5rem;
+    font-size: 1.3rem;
+}
+
+
+.submit{
+    background-color: black;
+    color:white;
+    font-size: 1.5rem;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-top: 1rem;
+    padding: 14px 28px;
+    font-weight: 600;
+    border:none;
+}
+.submit:hover{
+    color:blue;
+    background-color: white;
+}
+
+.authRedirect{
+    background-color: white;
+    font-weight: bold;
+    border: 1px solid black;
+}
+.authRedirect a{
+    color:black;
+    font-weight:bold;
+}
+
+.authRedirect a:hover{
+    color:blue;
+    font-weight:bold;
+}
+
+.address-form{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+@media (max-width: 768px) {
+    .signupContainer {
+        padding: 1rem;
+    }
+
+    .signUpForm {
+        padding: 1.5rem;
+    }
+
+    .signupContainer h1 {
+        font-size: 2rem;
+    }
+    .signUpForm fieldset label {
+        display:block;
+        margin-right: 0;
+        margin-bottom: 0.8rem;
+    }
+}

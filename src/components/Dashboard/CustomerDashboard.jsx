@@ -32,7 +32,7 @@ export default function CustomerDashboard() {
 
     // Edit Profile
     async function handleEdit(){
-        
+        navigate(`/edit-profile/${user._id}`);
     };
     // Delete Profile
     async function handleDelete(){
