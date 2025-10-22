@@ -1,11 +1,9 @@
 .tasks-Customer,
 .tasks-Provider {
     display:flex;
-    flex-wrap: flex;
+    flex-direction: column;
     padding:10px;
-    max-width:1500px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 20px auto 0 auto;
     font-size: 1.2rem;
     gap: 40px;
     justify-content: center;
@@ -14,9 +12,11 @@
 
 .task-card{
     border: 1px solid chocolate;
-    max-width: 300px;
+    width: 100%;
     max-width: 900px;
     padding: 10px 50px;
+    box-sizing: border-box;
+    background-color:rgb(241, 252, 249) ;
 }
 
 .tasks-Provider button{
@@ -24,8 +24,13 @@
 }
 @media (max-width: 768px) {
     .tasks-Provider{
-        display: block;
-        text-align: center;
+        padding: 10px;
+        align-items: center;
+    }
+
+    .task-card {
+        max-width: 95%;
+        padding: 10px 20px;
     }
 
 }
