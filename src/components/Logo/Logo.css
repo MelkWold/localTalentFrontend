@@ -18,4 +18,11 @@ img{
 
 .tagline{
     color:white;
+    font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+    .tagline{
+        font-size: 1.5rem
+    }
 }

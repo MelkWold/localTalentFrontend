@@ -8,7 +8,8 @@ export default function DashboardPage() {
 
     const { user } = useUser();
 
-    console.log(user)
+    // Debugging step
+    // console.log(user)
 
     const loading = () => { 
         return <h1>Loading</h1>};

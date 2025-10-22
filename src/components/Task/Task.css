@@ -2,7 +2,6 @@
 .tasks-Provider {
     display:flex;
     flex-wrap: flex;
-    
     padding:10px;
     max-width:1500px;
     margin-left: auto;
@@ -20,6 +19,9 @@
     padding: 10px 50px;
 }
 
+.tasks-Provider button{
+    font-size: 1.1rem;
+}
 @media (max-width: 768px) {
     .tasks-Provider{
         display: block;

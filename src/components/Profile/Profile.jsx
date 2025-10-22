@@ -43,7 +43,13 @@ export default function Profile(){
 
                 setReviews(response.data);
             } catch(err) {
-                console.error("Error fetching reviews:", err.message)
+                if(err.response){
+                    console.error("Server responded with error: ", err.response.status, err.response.data);    
+                } else if (err.request) {
+                    console.error("No response received: ", err.request)
+                } else {
+                    console.error("Error setting up request: ", err.message)
+                }
             }   
         }
 
@@ -55,12 +61,12 @@ export default function Profile(){
         <br/>
             <h2>Your Reviews</h2>
             <div className = "review-Provider">
+
                 {reviews.length === 0 ? (
                     <p>No reviews found.</p>
                     ) : (
                     reviews.map((review) => (
                         <div key={review._id} className="review-card">
-                            <p></p>
                             <p>Customer name: {review.reviewer?.userName}</p>
                             <p>Provider name: {review.reviewee?.userName}</p>
                             <p>Task: {review.service} </p>

@@ -22,17 +22,17 @@ The frontend is built using the following:
 
 
 ## Pages included (Temporary...TBD):
-- Homepage
-- Profile/Dashboard page
-- Transactions page
-- Messages page
-- Search page
-- Task page
+- Home
+- Profile
+- Dashboard
+- Messages
+- Search
+- Tasks
 
 ## Reusable components
 - Registration
 - Sign In
 - Navbar
-
-## API Endpoints(?)
+- Dashboard
+- Profile
 
