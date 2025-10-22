@@ -27,7 +27,6 @@ export default function Task(){
         // Fetch tasks
         async function getTasks() {
             try {
-               // const token = localStorage.getItem("token");
 
                 // Debugging step
                 console.log("Fetching tasks for user", user._id);

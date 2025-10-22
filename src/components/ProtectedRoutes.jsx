@@ -1,9 +1,9 @@
-import AuthPage from '../pages/AuthPage/AuthPage';
+import LoginRegisterPage from '../pages/LoginRegisterPage/LoginRegisterPage';
 import { useAuth } from '../context/regLoginContext'
 import { Outlet } from 'react-router-dom';
 
 export default function ProtectedRoutes(){
     const {cookies} = useAuth();
 
-    return cookies.token? <Outlet/>:<AuthPage/>
+    return cookies.token? <Outlet/>:<LoginRegisterPage/>
 }

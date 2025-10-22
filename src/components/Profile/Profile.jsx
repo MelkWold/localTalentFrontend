@@ -1,39 +1,79 @@
-// has to take some props 
-// conditionally render "contact provider" or "Edit Profile" and "Delete Profile" buttons
-
+import { useState, useEffect } from 'react';
+import { useUser } from "../../context/userContext";
+import axios from 'axios';
+import { useAuth } from '../../context/regLoginContext';
 import './Profile.css';
 
 export default function Profile(){
-    let name = "Melkamu Woldemariam";
-    let address = { 
-        street:"123 Astor Lane",
-        city: "Franklin Park",
-        state: "NJ",
-        country: "USA"};
-    let phone = "123-456-7890";
-    let services = ["Software", "Data Analytics", "Science", "Consultancy"]
-    let reviews = "Pending"
+    // To be redered conditionally based on type of user
 
-    return (
+
+    // define the states and user
+    const [reviews, setReviews] = useState([]);
+    const { user } = useUser();
+    const { cookies } = useAuth();
+    const token = cookies.token;
+    let baseURL = "http://localhost:3000/api/reviews";
+    
+    // Debugging step
+    // console.log(user);
+
+    useEffect(() => {
+        // Debugging step
+            console.log("Token in useEffect:", token);
+            console.log("User in useEffect", user);
+        if(!user?._id) {
+           
+            // Debugging step
+            console.warn("No user logged in yet");
+            return;
+        }
+
+        // Fetch tasks
+        async function getReviews() {
+            try {
+
+                // Debugging step
+                console.log("Fetching reviews for user", user._id);
+                console.log("Token:", token);
+
+                const response = await axios.get(`${baseURL}/myreviews`, { 
+                    headers: { "x-auth-token": token }, 
+            });
+
+                setReviews(response.data);
+            } catch(err) {
+                console.error("Error fetching reviews:", err.message)
+            }   
+        }
+
+        getReviews()
+    },[user, token]);
+
+    return(
         <>
-            <div className = "profileCard">
-            <div >
-                <h2>Provider Information</h2>
-                <p>{name} </p>
-                <p>{address.street}, {address.city}, {address.state}, {address.country}  </p>
-                <p>{phone}</p>
-                <p>{services[0]}, {services[1]}, {services[2]}, {services[3]} </p>
-                <p>Brief Bio</p>
-                <p>{reviews}</p>
-                <div className="forPublicProfile">
-                    <button>Contact provider</button>
-                </div>
-                <div className="forDashboard">
-                    <button>Edit Profile</button>
-                    <button>Delete Profile</button>
-                </div>
-            </div><br/>
+        <br/>
+            <h2>Your Reviews</h2>
+            <div className = "review-Provider">
+                {reviews.length === 0 ? (
+                    <p>No reviews found.</p>
+                    ) : (
+                    reviews.map((review) => (
+                        <div key={review._id} className="review-card">
+                            <p></p>
+                            <p>Customer name: {review.reviewer?.userName}</p>
+                            <p>Provider name: {review.reviewee?.userName}</p>
+                            <p>Task: {review.service} </p>
+                            <p>Task status: {review.taskStatus}</p>
+                            <p>Rating: {review.rating}</p>
+                            <p>Review: {review.comment}</p>
+                        </div>
+                    ))
+                )}
+                
             </div>
+
+            <br/>
         </>
-    )
+    );
 }

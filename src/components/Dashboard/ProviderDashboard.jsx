@@ -20,6 +20,15 @@ export default function ProviderDashboard() {
         }
         fetchReviews();
     }, [user]);
+    
+    async function handleEdit(){
+        
+    };
+
+
+    async function handleDelete(){
+
+    };
 
 
     return (
@@ -53,12 +62,9 @@ export default function ProviderDashboard() {
                         <p>No Reviews Yet.</p>
                     )}
                 
-                <div className="forPublicProfile">
-                    <button>Contact provider</button>
-                </div>
                 <div className="forDashboard">
-                    <button>Edit Profile</button>
-                    <button>Delete Profile</button>
+                    <button onClick="handleEdit">Edit Profile</button>
+                    <button onClick="handleDelete">Delete Profile</button>
                 </div>
             </div><br/>
             </div>

@@ -18,6 +18,7 @@ import Register from './components/Authenication/Register';
 import SignIn from './components/Authenication/SignIn';
 import Task from './components/Task/Task';
 import Footer from './components/Footer/Footer';
+import ProtectedRoutes from './components/ProtectedRoutes';
 
 function App() {
   const { cookies, logout } = useAuth();
@@ -52,12 +53,17 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path="/" element={<Homepage/>}/>
-        <Route path="/dashboard" element={<DashboardPage/>}/>
-        <Route path="/profile" element={<Profile/>}/>
-        <Route path="/task" element={<Task/>}/>
         <Route path="/auth/register" element={<Register/>}/>
         <Route path="/auth/signin" element={<SignIn/>}/>
-        <Route path="/search" element={<SearchPage/>}/>
+        
+
+        <Route element={<ProtectedRoutes/>}>
+          <Route path="/dashboard" element={<DashboardPage/>}/>
+          <Route path="/profile" element={<Profile/>}/>
+          <Route path="/task" element={<Task/>}/>
+          <Route path="/search" element={<SearchPage/>}/>
+        </Route>
+        
       </Routes>
       <Footer/>
      
