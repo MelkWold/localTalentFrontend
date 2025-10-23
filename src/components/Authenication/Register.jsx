@@ -25,7 +25,7 @@ export default function Register({ setNewUser }) {
     // Debugging step
     //console.log(formData);
 
-    // update formData using setFormData using data from  the signUp form
+    // update formData with setFormData using data from the signUp form
     function handleChange(e) {
         const { name, value } = e.target;
         if(name.startsWith('userAddress.')) {
@@ -44,13 +44,15 @@ export default function Register({ setNewUser }) {
         }
         
         // Debugging step
-        if(name === 'role') console.log("Selected role:", value);
+        // if(name === 'role') console.log("Selected role:", value);
     }
 
+    // If a user already exists, don't register them
     function handleClick(){
         if(typeof setNewUser === 'function') setNewUser(false);
     }
 
+    // Handle the registration process
     async function handleSubmit (e) {
         e.preventDefault();
 
@@ -69,7 +71,7 @@ export default function Register({ setNewUser }) {
             };
             
             // Debugging step
-            console.log("Data being sent to backend", submitData);
+            // console.log("Data being sent to backend", submitData);
 
             // Register the user and navigate them to the dashboard
             await register(submitData);

@@ -26,7 +26,7 @@ export default function Signin({ setNewUser }){
         e.preventDefault();
         // try to sign in the user and redirect to the dashboard
         try {
-            const { token, user } = await signin(formData); // fetch token and full userdata
+            const { token, user } = await signin(formData); // signin a user with formData and when successful fetch token and full userdata
             setUser(user); // update user context
             setRole(user.role); // update role context
             setError(null) // clear previous error if any

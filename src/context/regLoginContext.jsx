@@ -3,10 +3,11 @@ import axios from 'axios';
 import { createContext, useMemo, useContext } from 'react';
 import { useCookies } from 'react-cookie';
 import { useUser } from './userContext';
+
 // Create context
 const AuthContext = createContext();
 
-// Define the context provider function
+// Define the context provider
 export default function RegLoginProvider ({ children}) {
     const[cookies, setCookie, removeCookie] = useCookies(['token']);
     const backendConnectionStr = "http://localhost:3000/api";

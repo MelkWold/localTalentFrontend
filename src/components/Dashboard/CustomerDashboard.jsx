@@ -12,6 +12,7 @@ export default function CustomerDashboard() {
     const navigate= useNavigate();
     let baseURL = "http://localhost:3000/api"
 
+    // Define fetchReviews to fetch the reviews associated with the authenticated current user and run it everytime the user or the token changes.
     useEffect(() => {
         if (!user?._id) return;
         
@@ -30,11 +31,12 @@ export default function CustomerDashboard() {
         fetchReviews();
     }, [user, cookies.token]);
 
-    // Edit Profile
+    // Define a function to handle Editing profile (redirect this to the edit page)
     async function handleEdit(){
         navigate(`/edit-profile/${user._id}`);
     };
-    // Delete Profile
+    
+    // Define the handleDelete function to allow authenticated users to delete their profile
     async function handleDelete(){
         const confirmDelete = window.confirm("Are you sure you want to delete your profile? This action cannot be undone.");
         if(!confirmDelete) return;
