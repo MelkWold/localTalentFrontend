@@ -74,10 +74,10 @@ export default function CustomerDashboard() {
                     {user.phone}
                     </p>
                 
-                <h3><span style={{fontWeight: "bold"}}>Reviews: </span></h3>
+                <h3><span style={{fontWeight: "bold"}}>Reviews </span></h3>
                     {reviews.length > 0? (
                         reviews.map(review => (
-                            <p key={review._id}>{review.reviewer.userName}: {review.rating}/5 - {review.comment}</p>))
+                            <p className="reviewParagraph" key={review._id}>{review.reviewer.userName}: {review.rating}/5 - {review.comment}</p>))
                             ) : (
                             <p>No Reviews Yet.</p>
                          )}

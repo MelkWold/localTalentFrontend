@@ -80,10 +80,10 @@ export default function ProviderDashboard() {
                 
                 <p><span style={{fontWeight: "bold"}}>Services: </span>{user.services?.length > 0 ? user.services.join(", ") : "No services listed" } </p>
 
-                <h3>Reviews: </h3>
+                <h3>Reviews </h3>
                 {reviews.length > 0? (
                     reviews.map(review => (
-                    <p key={review._id}>{review.reviewer?.userName || "Unknown Reviewer"}: {review.rating}/5 - {review.comment}</p>))
+                    <p className="reviewParagraph" key={review._id}>{review.reviewer?.userName || "Unknown Reviewer"}: {review.rating}/5 - {review.comment}</p>))
                     ) : (
                         <p>No Reviews Yet.</p>
                     )}
